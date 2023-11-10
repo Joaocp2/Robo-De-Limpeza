@@ -44,5 +44,27 @@ public class RoboDeLimpeza {
                 }
             }
         }
+	    private boolean temSujeira() {
+            int x = posicaoRobo.x;
+            int y = posicaoRobo.y;
+            return x >= 0 && x < estQuarto[0].length && y >= 0 && y < estQuarto.length && estQuarto[y][x] == 'S';
+        }
+
+        private void limparSujeira() {
+            int x = posicaoRobo.x;
+            int y = posicaoRobo.y;
+            estQuarto[y][x] = 'L';
+        }
+
+        private boolean todasAsCelulasEstaoLimpa() {
+            for (char[] linha : estQuarto) {
+                for (char celula : linha) {
+                    if (celula == 'S') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
      
